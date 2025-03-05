@@ -1,0 +1,67 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>6-Axis Robot Arm Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; }
+    h2 { color: #0f62fe; }
+  </style>
+</head>
+<body>
+  <h2>6-Axis Robot Arm Control</h2>
+
+  <div>
+    Motor 0:
+    <button onclick="controlMotor(0, 'forward')">Forward</button>
+    <button onclick="controlMotor(0, 'backward')">Backward</button>
+    <button onclick="controlMotor(0, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(0, this.value)">
+  </div>
+  <div>
+    Motor 1:
+    <button onclick="controlMotor(1, 'forward')">Forward</button>
+    <button onclick="controlMotor(1, 'backward')">Backward</button>
+    <button onclick="controlMotor(1, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(1, this.value)">
+  </div>
+  <div>
+    Motor 2:
+    <button onclick="controlMotor(2, 'forward')">Forward</button>
+    <button onclick="controlMotor(2, 'backward')">Backward</button>
+    <button onclick="controlMotor(2, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(2, this.value)">
+  </div>
+  <div>
+    Motor 3:
+    <button onclick="controlMotor(3, 'forward')">Forward</button>
+    <button onclick="controlMotor(3, 'backward')">Backward</button>
+    <button onclick="controlMotor(3, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(3, this.value)">
+  </div>
+  <div>
+    Motor 4:
+    <button onclick="controlMotor(4, 'forward')">Forward</button>
+    <button onclick="controlMotor(4, 'backward')">Backward</button>
+    <button onclick="controlMotor(4, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(4, this.value)">
+  </div>
+  <div>
+    Motor 5:
+    <button onclick="controlMotor(5, 'forward')">Forward</button>
+    <button onclick="controlMotor(5, 'backward')">Backward</button>
+    <button onclick="controlMotor(5, 'stop')">Stop</button>
+    Speed: <input type="range" min="100" max="2000" oninput="setSpeed(5, this.value)">
+  </div>
+  
+  <!-- Repeat similar blocks for Motor 1 through Motor 5 -->
+
+  <script>
+    function controlMotor(motor, direction) {
+      fetch(`/${direction}` + motor);
+    }
+    function setSpeed(motor, speed) {
+      fetch(`/setSpeed` + motor + `?value=` + speed);
+    }
+  </script>
+</body>
+</html>
